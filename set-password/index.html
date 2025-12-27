@@ -33,9 +33,13 @@
                     <div class="alert alert-info">
                         <div class="fw-semibold mb-1">Cara pakai dari email invite</div>
                         <div class="small">
-                            Copy link undangan dari email, lalu ubah URL-nya menjadi:<br>
+                            <div class="mb-2">
+                                <strong>Jangan klik link invite-nya dulu.</strong> Dari email invite, klik kanan lalu
+                                <strong>Copy link address</strong>.
+                            </div>
+                            Ubah bagian depan URL menjadi:<br>
                             <code>https://hmps-informatika-uingusdur.netlify.app/set-password/</code>
-                            lalu tempelkan bagian <code>#invite_token=...</code> yang sama di belakangnya.
+                            lalu <strong>biarkan bagian token (setelah tanda #)</strong> tetap sama.
                         </div>
                     </div>
 
@@ -55,6 +59,8 @@
             const statusEl = document.getElementById('status');
             const btnOpen = document.getElementById('btn-open');
 
+            const STORAGE_KEY = 'hmps_identity_token_hash';
+
             function setStatus(msg) {
                 if (statusEl) statusEl.textContent = msg;
             }
@@ -64,11 +70,49 @@
                 return h.includes(name + '=');
             }
 
+            function hasAnyToken() {
+                return hasToken('invite_token') || hasToken('confirmation_token') || hasToken('recovery_token');
+            }
+
+            function saveHashIfTokenPresent() {
+                const h = window.location.hash || '';
+                if (h && h !== '#' && (h.includes('invite_token=') || h.includes('confirmation_token=') || h.includes('recovery_token='))) {
+                    try { sessionStorage.setItem(STORAGE_KEY, h); } catch (_) { }
+                }
+            }
+
+            function restoreHashFromStorageIfMissing() {
+                const h = window.location.hash || '';
+                if (h && h !== '#') return;
+                try {
+                    const saved = sessionStorage.getItem(STORAGE_KEY) || '';
+                    if (saved && saved.startsWith('#') && (saved.includes('invite_token=') || saved.includes('confirmation_token=') || saved.includes('recovery_token='))) {
+                        window.location.hash = saved;
+                    }
+                } catch (_) { }
+            }
+
+            function restoreHashFromQueryIfPresent() {
+                const url = new URL(window.location.href);
+                const invite = url.searchParams.get('invite_token');
+                const confirm = url.searchParams.get('confirmation_token');
+                const recovery = url.searchParams.get('recovery_token');
+                const token = invite || confirm || recovery;
+                const key = invite ? 'invite_token' : (confirm ? 'confirmation_token' : (recovery ? 'recovery_token' : ''));
+                if (token && key) {
+                    const h = '#' + key + '=' + encodeURIComponent(token);
+                    window.location.hash = h;
+                    try { sessionStorage.setItem(STORAGE_KEY, h); } catch (_) { }
+                }
+            }
+
             function openByToken() {
                 if (!window.netlifyIdentity) {
                     setStatus('Netlify Identity widget tidak termuat. Coba nonaktifkan adblock / refresh.');
                     return;
                 }
+
+                saveHashIfTokenPresent();
 
                 if (hasToken('invite_token') || hasToken('confirmation_token')) {
                     setStatus('Membuka form aktivasi (set password)…');
@@ -83,7 +127,6 @@
                 }
 
                 setStatus('Token tidak ditemukan di URL. Pastikan URL mengandung #invite_token=... atau #recovery_token=...');
-                window.netlifyIdentity.open('login');
             }
 
             if (btnOpen) {
@@ -94,6 +137,17 @@
                 setStatus('Netlify Identity widget tidak termuat.');
                 return;
             }
+
+            restoreHashFromQueryIfPresent();
+            restoreHashFromStorageIfMissing();
+            saveHashIfTokenPresent();
+
+            window.addEventListener('hashchange', function () {
+                if (hasAnyToken()) {
+                    saveHashIfTokenPresent();
+                    openByToken();
+                }
+            });
 
             window.netlifyIdentity.on('init', function () {
                 // Auto open on page load
