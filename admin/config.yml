@@ -1,0 +1,31 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Enable the CMS locally without Netlify Identity (optional)
+local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "kegiatan"
+    label: "Posting Kegiatan"
+    files:
+      - file: "data/posts.json"
+        label: "Daftar Posting"
+        name: "posts"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.date}})"
+            fields:
+              - { label: "ID (unik)", name: "id", widget: "string" }
+              - { label: "Judul", name: "title", widget: "string" }
+              - { label: "Tanggal", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "Ringkasan", name: "excerpt", widget: "text" }
+              - { label: "Gambar Cover", name: "image", widget: "image", required: false }
+              - { label: "Link (opsional, jika pakai halaman lama)", name: "url", widget: "string", required: false }
+              - { label: "Isi (Markdown, opsional)", name: "content", widget: "markdown", required: false }
+              - { label: "Publish", name: "published", widget: "boolean", default: true }

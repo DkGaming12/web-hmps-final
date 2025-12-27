@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": "sipur-angkatan-2025",
+      "title": "Sidang Paripurna (SIPUR) Angkatan 2025",
+      "date": "2025-12-14",
+      "excerpt": "Sidang pertanggungjawaban kinerja pengurus selama 1 periode hingga dinyatakan demisioner dan berakhirnya masa jabatan.",
+      "image": "sipur.jpeg",
+      "url": "berita-sipur.html",
+      "content": "",
+      "published": true
+    },
+    {
+      "id": "pkd-2025",
+      "title": "PKD: Mewujudkan Responsible Innovator",
+      "date": "2025-10-26",
+      "excerpt": "Pelatihan Kepemimpinan Dasar untuk mencetak kader pemimpin teknologi yang berintegritas.",
+      "image": "pkd.jpg",
+      "url": "pkd.html",
+      "content": "",
+      "published": true
+    }
+  ]
+}

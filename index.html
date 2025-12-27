@@ -26,8 +26,9 @@
                     <li class="nav-item"><a class="nav-link active" href="#home">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="#divisi">Divisi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#berita">Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#berita">Kegiatan</a></li>
                     <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin/">Admin</a></li>
                 </ul>
             </div>
         </div>
@@ -142,34 +143,78 @@
             <h2 class="section-title">Kegiatan Terbaru</h2>
             <p class="text-center text-muted mb-5">Dokumentasi kegiatan dan berita terkini HMPS Informatika.</p>
 
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="news-card">
-                        <img src="sipur.jpeg" class="news-img" alt="Sidang Paripurna (SIPUR) HMPS Informatika">
-                        <div class="p-4">
-                            <p class="news-date"><i class="far fa-calendar-alt me-2"></i>13-14 Desember 2025</p>
-                            <h5 class="fw-bold">Sidang Paripurna (SIPUR) Angkatan 2025</h5>
-                            <p class="text-muted small">Sidang pertanggungjawaban kinerja pengurus selama 1 periode
-                                hingga dinyatakan demisioner dan berakhirnya masa jabatan.</p>
-                            <a href="berita-sipur.html" class="btn-baca">Baca Selengkapnya <i
-                                    class="fas fa-arrow-right ms-1"></i></a>
+            <div class="row g-4" id="kegiatan-cards">
+                <div class="text-center text-muted">Memuat kegiatan…</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="berita-otomatis" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Berita Kampus</h2>
+                <p class="text-muted mb-0">Berita terbaru seputar Informatika dan UIN Gus Dur yang ditampilkan otomatis.
+                    Kamu tinggal buka halaman ini, tanpa update manual.</p>
+            </div>
+
+            <ul class="nav nav-tabs justify-content-center" id="newsTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-uin" data-bs-toggle="tab" data-bs-target="#pane-uin"
+                        type="button" role="tab" aria-controls="pane-uin" aria-selected="true">
+                        <i class="fas fa-university me-2"></i>UIN Gus Dur
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-informatika" data-bs-toggle="tab"
+                        data-bs-target="#pane-informatika" type="button" role="tab" aria-controls="pane-informatika"
+                        aria-selected="false">
+                        <i class="fas fa-laptop-code me-2"></i>Informatika
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content border border-top-0 rounded-bottom bg-white p-4 shadow-sm" id="newsTabContent">
+                <div class="tab-pane fade show active" id="pane-uin" role="tabpanel" aria-labelledby="tab-uin"
+                    tabindex="0">
+                    <div
+                        class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+                        <div>
+                            <h4 class="fw-bold mb-0">UIN Gus Dur</h4>
+                            <small class="text-muted">Sumber: Google News (RSS) • Link mengarah ke
+                                uingusdur.ac.id</small>
                         </div>
+                        <a class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer" id="openAllUin"
+                            href="#">
+                            Buka di sumber <i class="fas fa-arrow-up-right-from-square ms-2"></i>
+                        </a>
                     </div>
+
+                    <div id="status-uin" class="text-muted mb-3">Memuat berita…</div>
+                    <div id="list-uin" class="list-group"></div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="news-card">
-                        <img src="pkd.jpg" class="news-img" alt="PKD HMPS">
-                        <div class="p-4">
-                            <p class="news-date"><i class="far fa-calendar-alt me-2"></i>26 Oktober 2025</p>
-                            <h5 class="fw-bold">PKD: Mewujudkan Responsible Innovator</h5>
-                            <p class="text-muted small">Pelatihan Kepemimpinan Dasar untuk mencetak kader pemimpin
-                                teknologi yang berintegritas.</p>
-                            <a href="pkd.html" class="btn-baca">Baca Selengkapnya <i
-                                    class="fas fa-arrow-right ms-1"></i></a>
+                <div class="tab-pane fade" id="pane-informatika" role="tabpanel" aria-labelledby="tab-informatika"
+                    tabindex="0">
+                    <div
+                        class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+                        <div>
+                            <h4 class="fw-bold mb-0">Informatika</h4>
+                            <small class="text-muted">Sumber: Google News (RSS)</small>
                         </div>
+                        <a class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer"
+                            id="openAllInformatika" href="#">
+                            Buka di sumber <i class="fas fa-arrow-up-right-from-square ms-2"></i>
+                        </a>
                     </div>
+
+                    <div id="status-informatika" class="text-muted mb-3">Memuat berita…</div>
+                    <div id="list-informatika" class="list-group"></div>
                 </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <small class="text-muted">Catatan: Jika daftar kosong, coba refresh atau buka lewat tombol “Buka di
+                    sumber”.</small>
             </div>
         </div>
     </section>
@@ -251,6 +296,237 @@
                 navbar.classList.add('shadow');
             } else {
                 navbar.classList.remove('shadow');
+            }
+        });
+    </script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const FEEDS = {
+                informatika: {
+                    rssUrl: "https://news.google.com/rss/search?q=informatika&hl=id&gl=ID&ceid=ID:id",
+                    openUrl: "https://news.google.com/search?q=informatika&hl=id&gl=ID&ceid=ID:id",
+                    statusId: "status-informatika",
+                    listId: "list-informatika",
+                    openAllId: "openAllInformatika",
+                    limit: 12
+                },
+                uin: {
+                    rssUrl: "https://news.google.com/rss/search?q=site%3Auingusdur.ac.id%20uin%20gus%20dur&hl=id&gl=ID&ceid=ID:id",
+                    openUrl: "https://news.google.com/search?q=site%3Auingusdur.ac.id%20uin%20gus%20dur&hl=id&gl=ID&ceid=ID:id",
+                    statusId: "status-uin",
+                    listId: "list-uin",
+                    openAllId: "openAllUin",
+                    limit: 12
+                }
+            };
+
+            function byId(id) {
+                return document.getElementById(id);
+            }
+
+            function setStatus(id, text) {
+                const el = byId(id);
+                if (el) el.textContent = text;
+            }
+
+            function formatDate(dateStr) {
+                const date = new Date(dateStr);
+                if (Number.isNaN(date.getTime())) return "";
+                return date.toLocaleDateString("id-ID", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                });
+            }
+
+            function escapeHtml(text) {
+                return String(text)
+                    .replaceAll("&", "&amp;")
+                    .replaceAll("<", "&lt;")
+                    .replaceAll(">", "&gt;")
+                    .replaceAll('"', "&quot;")
+                    .replaceAll("'", "&#039;");
+            }
+
+            async function fetchRssXml(rssUrl) {
+                const proxyUrl = "https://api.allorigins.win/raw?url=" + encodeURIComponent(rssUrl);
+                const response = await fetch(proxyUrl, { cache: "no-store" });
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil RSS (" + response.status + ")");
+                }
+                return await response.text();
+            }
+
+            function parseRssItems(xmlText) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(xmlText, "text/xml");
+                const items = Array.from(doc.getElementsByTagName("item"));
+
+                const MRSS_NS = "http://search.yahoo.com/mrss/";
+
+                function pickFirstAttrUrl(el, attrName) {
+                    const url = el?.getAttribute?.(attrName);
+                    return url ? String(url).trim() : "";
+                }
+
+                function findImageUrl(item) {
+                    const mediaContentNs = item.getElementsByTagNameNS(MRSS_NS, "content")[0];
+                    const mediaThumbNs = item.getElementsByTagNameNS(MRSS_NS, "thumbnail")[0];
+                    const urlNs = pickFirstAttrUrl(mediaContentNs, "url") || pickFirstAttrUrl(mediaThumbNs, "url");
+                    if (urlNs) return urlNs;
+
+                    const mediaContent = item.getElementsByTagName("media:content")[0];
+                    const mediaThumb = item.getElementsByTagName("media:thumbnail")[0];
+                    const urlPrefixed = pickFirstAttrUrl(mediaContent, "url") || pickFirstAttrUrl(mediaThumb, "url");
+                    if (urlPrefixed) return urlPrefixed;
+
+                    const html = item.getElementsByTagName("content:encoded")[0]?.textContent
+                        ?? item.getElementsByTagName("description")[0]?.textContent
+                        ?? "";
+                    const match = String(html).match(/<img[^>]+src=["']([^"']+)["']/i);
+                    return match?.[1]?.trim() ?? "";
+                }
+
+                return items.map((item) => {
+                    const title = item.getElementsByTagName("title")[0]?.textContent?.trim() ?? "";
+                    const link = item.getElementsByTagName("link")[0]?.textContent?.trim() ?? "";
+                    const pubDate = item.getElementsByTagName("pubDate")[0]?.textContent?.trim() ?? "";
+                    const source = item.getElementsByTagName("source")[0]?.textContent?.trim() ?? "";
+                    const imageUrl = findImageUrl(item);
+
+                    return { title, link, pubDate, source, imageUrl };
+                }).filter((x) => x.title && x.link);
+            }
+
+            function renderList(listId, items) {
+                const list = byId(listId);
+                if (!list) return;
+
+                list.innerHTML = "";
+
+                if (!items.length) {
+                    list.innerHTML = '<div class="text-muted">Belum ada berita yang bisa ditampilkan.</div>';
+                    return;
+                }
+
+                for (const item of items) {
+                    const date = formatDate(item.pubDate);
+                    const meta = [item.source, date].filter(Boolean).join(" • ");
+
+                    const a = document.createElement("a");
+                    a.className = "list-group-item list-group-item-action";
+                    a.href = item.link;
+                    a.target = "_blank";
+                    a.rel = "noopener noreferrer";
+
+                    const thumbHtml = item.imageUrl
+                        ? `<img class="news-thumb" src="${escapeHtml(item.imageUrl)}" alt="">`
+                        : `<div class="news-thumb news-thumb--placeholder bg-light text-muted d-flex align-items-center justify-content-center">
+                                <i class="far fa-image"></i>
+                           </div>`;
+
+                    a.innerHTML = `
+                        <div class="d-flex justify-content-between align-items-start gap-3">
+                            <div class="d-flex align-items-start gap-3">
+                                ${thumbHtml}
+                                <div>
+                                    <div class="fw-semibold">${escapeHtml(item.title)}</div>
+                                    ${meta ? `<div class="small text-muted mt-1">${escapeHtml(meta)}</div>` : ""}
+                                </div>
+                            </div>
+                            <div class="text-muted"><i class="fas fa-arrow-up-right-from-square"></i></div>
+                        </div>
+                    `;
+
+                    list.appendChild(a);
+                }
+            }
+
+            async function loadFeed(key) {
+                const cfg = FEEDS[key];
+
+                const openAll = byId(cfg.openAllId);
+                if (openAll) openAll.href = cfg.openUrl;
+
+                try {
+                    setStatus(cfg.statusId, "Memuat berita…");
+                    const xmlText = await fetchRssXml(cfg.rssUrl);
+                    const items = parseRssItems(xmlText).slice(0, cfg.limit);
+                    renderList(cfg.listId, items);
+                    setStatus(cfg.statusId, items.length ? "" : "Tidak ada berita ditemukan.");
+                } catch (err) {
+                    renderList(cfg.listId, []);
+                    setStatus(cfg.statusId, "Gagal memuat berita. Silakan coba lagi.");
+                }
+            }
+
+            loadFeed("informatika");
+            loadFeed("uin");
+        });
+    </script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', async function () {
+            const container = document.getElementById('kegiatan-cards');
+            if (!container) return;
+
+            function formatDate(yyyyMmDd) {
+                const d = new Date(yyyyMmDd);
+                if (Number.isNaN(d.getTime())) return yyyyMmDd || '';
+                return d.toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' });
+            }
+
+            function escapeHtml(text) {
+                return String(text)
+                    .replaceAll('&', '&amp;')
+                    .replaceAll('<', '&lt;')
+                    .replaceAll('>', '&gt;')
+                    .replaceAll('"', '&quot;')
+                    .replaceAll("'", '&#039;');
+            }
+
+            try {
+                const res = await fetch('data/posts.json', { cache: 'no-store' });
+                if (!res.ok) throw new Error('Gagal memuat data kegiatan.');
+                const data = await res.json();
+                const posts = Array.isArray(data?.posts) ? data.posts : [];
+
+                const published = posts
+                    .filter(p => p && p.published === true)
+                    .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+                    .slice(0, 3);
+
+                if (!published.length) {
+                    container.innerHTML = '<div class="text-center text-muted">Belum ada kegiatan.</div>';
+                    return;
+                }
+
+                container.innerHTML = '';
+
+                for (const p of published) {
+                    const href = p.url ? String(p.url) : ('post.html?id=' + encodeURIComponent(p.id || ''));
+                    const imgHtml = p.image
+                        ? `<img src="${escapeHtml(p.image)}" class="news-img" alt="${escapeHtml(p.title || '')}">`
+                        : '';
+
+                    const col = document.createElement('div');
+                    col.className = 'col-md-4';
+                    col.innerHTML = `
+                        <div class="news-card">
+                            ${imgHtml}
+                            <div class="p-4">
+                                <p class="news-date"><i class="far fa-calendar-alt me-2"></i>${escapeHtml(formatDate(p.date))}</p>
+                                <h5 class="fw-bold">${escapeHtml(p.title || '')}</h5>
+                                <p class="text-muted small">${escapeHtml(p.excerpt || '')}</p>
+                                <a href="${escapeHtml(href)}" class="btn-baca">Baca Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(col);
+                }
+            } catch (e) {
+                container.innerHTML = '<div class="text-center text-muted">Gagal memuat kegiatan.</div>';
             }
         });
     </script>
