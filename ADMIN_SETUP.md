@@ -21,6 +21,20 @@ Catatan: di CMS sendiri, Admin Dev & Admin sama-sama bisa edit posting (sesuai k
 
 Setelah itu, Admin bisa login di `/admin/`.
 
+## Jika link invite tidak memunculkan form password
+
+Kadang link invite dari email hanya membuka homepage. Jika itu terjadi:
+
+1. Copy link invite dari email (biasanya bentuknya `https://<domain>/#invite_token=...`)
+2. Ubah URL-nya menjadi `https://<domain>/set-password/` lalu tempelkan bagian `#invite_token=...` di belakangnya
+
+Contoh:
+
+- Dari: `https://hmps-informatika-uingusdur.netlify.app/#invite_token=XYZ`
+- Menjadi: `https://hmps-informatika-uingusdur.netlify.app/set-password/#invite_token=XYZ`
+
+Halaman ini akan otomatis membuka form untuk set/reset password.
+
 ## Struktur posting
 File: `data/posts.json`
 - `id`: unik (dipakai untuk link `post.html?id=...`)
