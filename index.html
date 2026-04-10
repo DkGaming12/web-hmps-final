@@ -8,14 +8,17 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 </head>
 
 <body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
@@ -30,54 +33,65 @@
                     <li class="nav-item"><a class="nav-link" href="#divisi">Divisi</a></li>
                     <li class="nav-item"><a class="nav-link" href="#berita">Kegiatan</a></li>
                     <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin/">Admin</a></li>
+
                 </ul>
             </div>
         </div>
     </nav>
 
     <section id="home" class="hero-section text-center d-flex align-items-center">
-        <div class="container">
-            <span class="badge bg-primary mb-3">UIN K.H. Abdurrahman Wahid Pekalongan</span>
+        <div class="container" data-aos="fade-up">
+            <span class="badge mb-3"># UIN K.H. Abdurrahman Wahid Pekalongan</span>
             <h1 class="display-3 fw-bold mb-3">HMPS INFORMATIKA</h1>
-            <p class="lead mb-5">Membangun Generasi Teknologi yang Berintegritas, Inovatif, dan Agamis.</p>
+            <p class="lead mb-5 text-muted">Membangun Generasi Teknologi yang Berintegritas, Inovatif, dan Agamis.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="#divisi" class="btn btn-primary btn-lg px-4 me-sm-3 rounded-pill">Lihat Program</a>
-                <a href="#kontak" class="btn btn-outline-light btn-lg px-4 rounded-pill">Hubungi Kami</a>
+                <a href="#divisi" class="btn btn-primary btn-lg px-4 me-sm-3 rounded-pill">Explore Code</a>
+                <a href="#kontak" class="btn btn-outline-light btn-lg px-4 rounded-pill">Connect</a>
             </div>
         </div>
     </section>
 
-    <section id="tentang" class="section-padding bg-light">
+    <section id="tentang" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Tentang Kami</h2>
-            <div class="row justify-content-center mt-5">
-                <div class="col-lg-10 text-center">
-                    <h3 class="fw-bold mb-3">Siapa HMPS Informatika?</h3>
-                    <p class="text-muted mb-5">Himpunan Mahasiswa Program Studi (HMPS) Informatika UIN Gus Dur adalah
+            <h2 class="section-title" data-aos="fade-right">System.About()</h2>
+            <div class="row align-items-center mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-yellow"></div>
+                            <div class="dot dot-green"></div>
+                        </div>
+                        <div class="terminal-body">
+                            <p><span class="code-accent">></span> whoami</p>
+                            <p>HMPS Informatika UIN Gus Dur</p>
+                            <br>
+                            <p><span class="code-accent">></span> cat vision.txt</p>
+                            <p>Menjadi pusat pergerakan mahasiswa informatika yang unggul dalam riset dan teknologi berbasis nilai keislaman.</p>
+                            <br>
+                            <p><span class="code-accent">></span> list mission --all</p>
+                            <p>1. Mengembangkan soft-skill & hard-skill.</p>
+                            <p>2. Menumbuhkan integritas & inovasi.</p>
+                            <p>3. Adaptif terhadap perkembangan teknologi.</p>
+                            <br>
+                            <p><span class="code-accent">></span> <span class="terminal-cursor"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0 px-lg-5" data-aos="fade-left">
+                    <h3 class="fw-bold mb-3">Membangun Masa Depan Digital</h3>
+                    <p class="text-muted">Himpunan Mahasiswa Program Studi (HMPS) Informatika UIN Gus Dur adalah
                         organisasi eksekutif di tingkat prodi yang menjadi wadah pengembangan minat, bakat, dan potensi
                         mahasiswa di bidang teknologi informasi.</p>
-
-                    <div class="row text-start">
-                        <div class="col-md-6">
-                            <div class="d-flex mb-3">
-                                <div class="flex-shrink-0"><i class="fas fa-check-circle text-primary fa-2x"></i></div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5>Visi</h5>
-                                    <p class="small text-muted">Menjadi pusat pergerakan mahasiswa informatika yang
-                                        unggul dalam riset dan teknologi berbasis nilai keislaman.</p>
-                                </div>
-                            </div>
+                    <p class="text-muted">Kami berdedikasi untuk menciptakan lingkungan belajar yang kolaboratif, progresif, dan berlandaskan nilai-nilai luhur.</p>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-microchip text-primary me-3 fa-lg"></i>
+                            <span>Inovasi Tanpa Henti</span>
                         </div>
-                        <div class="col-md-6">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0"><i class="fas fa-rocket text-primary fa-2x"></i></div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5>Misi Utama</h5>
-                                    <p class="small text-muted">Mengembangkan soft-skill dan hard-skill mahasiswa
-                                        melalui pelatihan, workshop, dan kompetisi.</p>
-                                </div>
-                            </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-shield-alt text-secondary me-3 fa-lg"></i>
+                            <span>Integritas Digital</span>
                         </div>
                     </div>
                 </div>
@@ -92,46 +106,46 @@
 
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
-                    <div class="divisi-card">
+                    <div class="divisi-card" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-user-tie divisi-icon"></i>
                         <h4>BPH</h4>
-                        <p class="small text-uppercase text-primary fw-bold mb-2">Badan Pengurus Harian</p>
+                        <p class="small text-uppercase fw-bold mb-2">/ Badan Pengurus Harian</p>
                         <p class="text-muted">Penanggung jawab utama roda organisasi, administrasi, keuangan, dan
                             koordinasi strategis antar departemen.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="divisi-card">
+                    <div class="divisi-card" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-users-cog divisi-icon"></i>
                         <h4>DPA</h4>
-                        <p class="small text-uppercase text-primary fw-bold mb-2">Dept. Pemberdayaan Anggota</p>
+                        <p class="small text-uppercase fw-bold mb-2">/ Dept. Pemberdayaan Anggota</p>
                         <p class="text-muted">Fokus pada kaderisasi, upgrading skill, menjaga soliditas, dan
                             pengembangan potensi seluruh anggota.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="divisi-card">
+                    <div class="divisi-card" data-aos="fade-up" data-aos-delay="300">
                         <i class="fas fa-camera-retro divisi-icon"></i>
                         <h4>DIGMUL</h4>
-                        <p class="small text-uppercase text-primary fw-bold mb-2">Dept. Digital & Multimedia</p>
+                        <p class="small text-uppercase fw-bold mb-2">/ Dept. Digital & Multimedia</p>
                         <p class="text-muted">Mengelola branding organisasi, konten kreatif media sosial, desain grafis,
                             dan dokumentasi kegiatan.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="divisi-card">
+                    <div class="divisi-card" data-aos="fade-up" data-aos-delay="400">
                         <i class="fas fa-laptop-code divisi-icon"></i>
                         <h4>ILTEK</h4>
-                        <p class="small text-uppercase text-primary fw-bold mb-2">Dept. Keilmuan & Teknologi</p>
+                        <p class="small text-uppercase fw-bold mb-2">/ Dept. Keilmuan & Teknologi</p>
                         <p class="text-muted">Wadah riset teknologi, pelatihan coding, dan pengembangan wawasan akademik
                             mahasiswa Informatika.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="divisi-card">
+                    <div class="divisi-card" data-aos="fade-up" data-aos-delay="500">
                         <i class="fas fa-bullhorn divisi-icon"></i>
-                        <h4>Advokasi & Humas</h4>
-                        <p class="small text-uppercase text-primary fw-bold mb-2">Dept. Advokasi & Humas</p>
+                        <h4>ADVOKASI</h4>
+                        <p class="small text-uppercase fw-bold mb-2">/ Dept. Advokasi & Humas</p>
                         <p class="text-muted">Menjadi jembatan informasi internal-eksternal serta mengadvokasi aspirasi
                             mahasiswa kepada birokrasi.</p>
                     </div>
@@ -140,7 +154,7 @@
         </div>
     </section>
 
-    <section id="berita" class="section-padding bg-light">
+    <section id="berita" class="section-padding">
         <div class="container">
             <h2 class="section-title">Kegiatan Terbaru</h2>
             <p class="text-center text-muted mb-5">Dokumentasi kegiatan dan berita terkini HMPS Informatika.</p>
@@ -175,7 +189,7 @@
                 </li>
             </ul>
 
-            <div class="tab-content border border-top-0 rounded-bottom bg-white p-4 shadow-sm" id="newsTabContent">
+            <div class="tab-content border border-top-0 rounded-bottom p-4" id="newsTabContent">
                 <div class="tab-pane fade show active" id="pane-uin" role="tabpanel" aria-labelledby="tab-uin"
                     tabindex="0">
                     <div
@@ -185,9 +199,9 @@
                             <small class="text-muted">Sumber: Google News (RSS) • Link mengarah ke
                                 uingusdur.ac.id</small>
                         </div>
-                        <a class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer" id="openAllUin"
+                        <a class="btn btn-outline-info" target="_blank" rel="noopener noreferrer" id="openAllUin"
                             href="#">
-                            Buka di sumber <i class="fas fa-arrow-up-right-from-square ms-2"></i>
+                            Buka di sumber <i class="fas fa-external-link-alt ms-2"></i>
                         </a>
                     </div>
 
@@ -203,9 +217,9 @@
                             <h4 class="fw-bold mb-0">Informatika</h4>
                             <small class="text-muted">Sumber: Google News (RSS)</small>
                         </div>
-                        <a class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer"
-                            id="openAllInformatika" href="#">
-                            Buka di sumber <i class="fas fa-arrow-up-right-from-square ms-2"></i>
+                        <a class="btn btn-outline-info" target="_blank" rel="noopener noreferrer" id="openAllInformatika"
+                            href="#">
+                            Buka di sumber <i class="fas fa-external-link-alt ms-2"></i>
                         </a>
                     </div>
 
@@ -225,8 +239,8 @@
         <div class="container">
             <h2 class="section-title">Hubungi Kami</h2>
             <div class="row mt-5">
-                <div class="col-lg-5 mb-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100 border">
+                <div class="col-lg-5 mb-4" data-aos="fade-up">
+                    <div class="contact-card p-4 rounded-4 shadow-sm h-100 border">
                         <h4 class="fw-bold mb-4">Sekretariat</h4>
                         <p><i class="fas fa-map-marker-alt text-primary me-2"></i> Kampus UIN K.H. Abdurrahman Wahid,
                             Kajen, Pekalongan, Jawa Tengah.</p>
@@ -242,8 +256,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-7">
-                    <div class="bg-white p-4 rounded-4 shadow-sm border">
+                <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card p-4 rounded-4 shadow-sm border">
                         <h4 class="fw-bold mb-4">Kirim Pesan</h4>
                         <form>
                             <div class="row">
@@ -290,6 +304,14 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+    </script>
 
     <script>
         window.addEventListener('scroll', function () {
@@ -424,7 +446,7 @@
 
                     const thumbHtml = item.imageUrl
                         ? `<img class="news-thumb" src="${escapeHtml(item.imageUrl)}" alt="">`
-                        : `<div class="news-thumb news-thumb--placeholder bg-light text-muted d-flex align-items-center justify-content-center">
+                        : `<div class="news-thumb news-thumb--placeholder d-flex align-items-center justify-content-center">
                                 <i class="far fa-image"></i>
                            </div>`;
 
@@ -533,26 +555,7 @@
         });
     </script>
 
-    <script>
-        (function () {
-            if (!window.netlifyIdentity) return;
 
-            function hasToken(name) {
-                const h = window.location.hash || '';
-                return h.includes(name + '=');
-            }
-
-            window.netlifyIdentity.on('init', function () {
-                if (hasToken('invite_token') || hasToken('confirmation_token')) {
-                    window.netlifyIdentity.open('signup');
-                } else if (hasToken('recovery_token')) {
-                    window.netlifyIdentity.open('login');
-                }
-            });
-
-            window.netlifyIdentity.init();
-        })();
-    </script>
 </body>
 
 </html>
